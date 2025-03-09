@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo de Administradores</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .fixed-height-card {
+        height: 180px;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="mb-4 text-primary">Bienvenido al Módulo de Administradores</h1>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card text-center fixed-height-card">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Gestionar Usuarios</h5>
+                    <p class="card-text">Administrar roles, permisos y detalles de los usuarios.</p>
+                    <button class="btn btn-info mt-auto" onclick="toggleVisibility('manageUsersContainer')">Gestionar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center fixed-height-card">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Estadísticas del Sistema</h5>
+                    <p class="card-text">Ver estadísticas detalladas y reportes de uso del sistema.</p>
+                    <button class="btn btn-success mt-auto" onclick="toggleVisibility('systemStatsContainer')">Ver Estadísticas</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center fixed-height-card">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Configuración del Sistema</h5>
+                    <p class="card-text">Configurar parámetros y opciones del sistema.</p>
+                    <button class="btn btn-warning mt-auto" onclick="toggleVisibility('systemConfigContainer')">Configurar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gestionar Usuarios -->
+    <div id="manageUsersContainer" class="row g-3 mt-3 hidden">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Gestionar Usuarios</div>
+                <div class="card-body">
+                    <p>Lista de usuarios con opciones para editar, eliminar o cambiar roles.</p>
+                    <!-- Lista de usuarios con botones para editar o eliminar -->
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Juan Pérez - Administrador
+                            <button class="btn btn-sm btn-primary float-end">Editar</button>
+                        </li>
+                        <li class="list-group-item">
+                            Ana Gómez - Recepcionista
+                            <button class="btn btn-sm btn-danger float-end">Eliminar</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Estadísticas del Sistema -->
+    <div id="systemStatsContainer" class="row g-3 mt-3 hidden">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Estadísticas del Sistema</div>
+                <div class="card-body">
+                    <p>Reportes gráficos de uso y eficiencia del sistema.</p>
+                    <!-- Ejemplo de gráficos estadísticos -->
+                    <div class="alert alert-success">Número de citas este mes: 150</div>
+                    <div class="alert alert-success">Número de cancelaciones este mes: 32</div>
+                    <div class="alert alert-success">Número de usuarios remitidos este mes: 345</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Configuración del Sistema -->
+    <div id="systemConfigContainer" class="row g-3 mt-3 hidden">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Configuración del Sistema</div>
+                <div class="card-body">
+                    <p>Ajustes generales del sistema, como horarios de operación o servicios ofrecidos.</p>
+                    <!-- Formulario para cambiar configuraciones -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="operationHours" class="form-label">Horario de Operación</label>
+                            <input type="text" class="form-control" id="operationHours" placeholder="09:00 AM - 05:00 PM">
+                        </div>
+                        <button type="submit" class="btn btn-warning">Actualizar Configuración</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function toggleVisibility(containerId) {
+    var containers = ['manageUsersContainer', 'systemStatsContainer', 'systemConfigContainer'];
+    containers.forEach(function(id) {
+        if (id !== containerId) {
+            document.getElementById(id).classList.add('hidden');
+        }
+    });
+    var container = document.getElementById(containerId);
+    container.classList.toggle('hidden');
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
